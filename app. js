@@ -1,0 +1,31 @@
+
+document.addEventListener("DOMContentLoaded", function () {
+  const firmware = document.getElementById("firmware");
+  const status = document.getElementById("status");
+  const button = document.getElementById("checkButton");
+
+  if (!firmware || !status || !button) {
+    console.error("ANAS HOST: عناصر الصفحة غير موجودة");
+    return;
+  }
+
+  function updateStatus() {
+    const version = firmware.value;
+
+    if (!version) {
+      status.textContent = "يرجى اختيار إصدار النظام أولاً.";
+      return;
+    }
+
+    status.textContent =
+      "ANAS PS4 HOST\n" +
+      "الإصدار المختار: " + version + "\n" +
+      "الواجهة تعمل بنجاح.\n" +
+      "لم يتم التحقق من توافق الجلبريك لهذا الإصدار.";
+  }
+
+  firmware.addEventListener("change", updateStatus);
+  button.addEventListener("click", updateStatus);
+
+  status.textContent = "اختر إصدار النظام لعرض معلوماته.";
+});

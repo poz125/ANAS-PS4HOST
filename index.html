@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>ANAS PS4 HOST</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const firmware = document.getElementById("firmware");
+  const status = document.getElementById("status");
+  const button = document.getElementById("checkButton");
+
+  function updateStatus() {
+    if (!firmware.value) {
+      status.textContent = "يرجى اختيار إصدار النظام أولاً";
+      return;
+    }
+
+    status.textContent =
+      "الإصدار المختار: " + firmware.value +
+      "\nواجهة ANAS PS4 HOST تعمل بنجاح.";
+  }
+
+  firmware.addEventListener("change", updateStatus);
+  button.addEventListener("click", updateStatus);
+});
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+<script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="background-grid"></div>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+
+  <main class="container">
+    <header class="header">
+      <div class="logo">ANAS <span>PS4</span> HOST</div>
+      <div class="line"></div>
+      <p class="welcome">أنس يرحب بكم</p>
+      <p class="subtitle">واجهة إدارة إصدارات نظام PlayStation 4</p>
+    </header>
+
+    <section class="panel">
+      <div class="panel-top">
+        <span class="live-dot"></span>
+        <span>لوحة النظام</span>
+        <span class="version-label">ANAS HOST V1.0</span>
+      </div>
+
+      <label for="firmware">اختر إصدار النظام</label>
+
+      <select id="firmware">
+        <option value="">-- اختر إصدار PS4 --</option>
+        <option value="9.00">9.00</option>
+        <option value="9.03">9.03</option>
+        <option value="9.04">9.04</option>
+        <option value="9.50">9.50</option>
+        <option value="9.51">9.51</option>
+        <option value="9.60">9.60</option>
+        <option value="10.00">10.00</option>
+        <option value="10.01">10.01</option>
+        <option value="10.50">10.50</option>
+        <option value="10.70">10.70</option>
+        <option value="10.71">10.71</option>
+        <option value="11.00">11.00</option>
+        <option value="11.02">11.02</option>
+        <option value="11.50">11.50</option>
+        <option value="11.52">11.52</option>
+        <option value="12.00">12.00</option>
+        <option value="12.02">12.02</option>
+        <option value="12.50">12.50</option>
+        <option value="12.52">12.52</option>
+        <option value="13.00">13.00</option>
+        <option value="13.02">13.02</option>
+        <option value="13.04">13.04</option>
+        <option value="13.50">13.50</option>
+      </select>
+
+      <button id="checkButton" type="button">فحص الإصدار</button>
+
+      <div id="status" class="status" role="status" aria-live="polite">
+        اختر إصدار النظام لعرض معلوماته.
+      </div>
+
+      <p class="notice">
+        هذه الواجهة تعرض معلومات الإصدار فقط. لا تؤكد توافق الجلبريك
+        ولا تشغّل GoldHEN من تلقاء نفسها.
+      </p>
+    </section>
+
+    <footer>
+      <div class="footer-line"></div>
+      <p>ANAS PS4 HOST</p>
+      <small>مشروع مستقل لتصميم واجهة محلية</small>
+    </footer>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
